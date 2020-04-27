@@ -1,0 +1,32 @@
+name: CustomCobbleGen
+version: 1.0.0
+description: Provides option to change cobble generator to some other block one
+authors: [pkt77, ceskyDJ]
+
+main: cz.ceskydj.customcobblegen.CustomCobbleGen
+database: false
+api-version: 1.15
+softdepend:
+  - Multiverse-Core
+  - CustomOreGen
+
+commands:
+  ccgreload:
+    description: Shows list of commands.
+    aliases: [ccgr]
+    usage: /ccgreload or /ccgr
+
+permissions:
+  customcobblegen.*:
+    description: Allows use of every feature in the plugin
+    children:
+      customcobblegen.reload: true
+      customcobblegen.use.*: true
+
+  customcobblegen.reload:
+    description: Allows players to reload the configuration
+    default: op
+
+  customcobblegen.use.*:
+    description: Allows players to use generator in all allowed worlds
+    default: op
