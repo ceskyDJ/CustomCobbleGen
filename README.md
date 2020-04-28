@@ -1,6 +1,6 @@
 # Custom Cobble Gen
 
-Custom Cobble Gen is Spigot plugin that provides option to change cobble generator to some other block one.
+Custom Cobble Gen is Spigot plugin that provides option to change cobble generator to some other block one. Primary use of this plugin is in specific types of worlds like nether and end, where isn't standard skyblock islands.
 
 This is a fork of [pkt77/OreGenerator](https://github.com/pkt77/OreGenerator) repository. Thanks to pkt77 for basis of this project.
 
@@ -15,8 +15,8 @@ This is a fork of [pkt77/OreGenerator](https://github.com/pkt77/OreGenerator) re
 
 ## Compatibility
 Custom Cobble Gen is compatible with these plugins:
-- Multiverse-Core - prefered multi world plugin
-- CustomOreGen - another cobble stone generator modifier. This plugin automatically disable it in world where is used Custom Cobble Gen. Custom Cobble Gen is primary for specific worlds like nether and end. In this type of worlds CustomOreGen doesn't work at all. Its disabling is just in case.
+- **Multiverse-Core** - prefered multi world plugin
+- **CustomOreGen** - another cobble stone generator modifier. This plugin automatically disable it in world where is used Custom Cobble Gen. Custom Cobble Gen is primary for specific worlds like nether and end. In this type of worlds CustomOreGen doesn't work at all. Its disabling is just in case.
 
 ## Default configuration
 ```YAML
