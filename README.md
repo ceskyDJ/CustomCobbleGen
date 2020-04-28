@@ -13,6 +13,11 @@ This is a fork of [pkt77/OreGenerator](https://github.com/pkt77/OreGenerator) re
 - **customcobblegen.reload** - use /ccgreload (or /ccgr) command
 - **customcobblegen.*** - all permissions of this plugin
 
+## Compatibility
+Custom Cobble Gen is compatible with these plugins:
+- Multiverse-Core - prefered multi world plugin
+- CustomOreGen - another cobble stone generator modifier. This plugin automatically disable it in world where is used Custom Cobble Gen. Custom Cobble Gen is primary for specific worlds like nether and end. In this type of worlds CustomOreGen doesn't work at all. Its disabling is just in case.
+
 ## Default configuration
 ```YAML
 # Allow using debug dumps. It's not recommended on production servers.
