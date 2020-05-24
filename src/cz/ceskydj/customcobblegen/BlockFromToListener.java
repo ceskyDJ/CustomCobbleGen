@@ -28,17 +28,35 @@ public class BlockFromToListener implements Listener {
 
     @EventHandler
     public void onFromTo(BlockFromToEvent event) {
-        Material blockMaterial = event.getBlock().getType();
-        if (!(blockMaterial == Material.WATER || blockMaterial == Material.LAVA)) {
-            return;
-        }
-
+        Block source = event.getBlock();
         Block generatedBlock = event.getToBlock();
-        if (generatedBlock.getType() != Material.AIR) {
+        BlockFace face = event.getFace();
+
+        this.plugin.dump("Block from to event has been handled.");
+        this.plugin.dump("- World: " + source.getWorld().getName());
+        this.plugin.dump("- Source block: " + source.getType().name());
+        this.plugin.dump("- New block: " + generatedBlock.getType().name());
+        this.plugin.dump("- Source metadata: " + source.getBlockData().getAsString(true));
+        this.plugin.dump("- New block metadata: " + generatedBlock.getBlockData().getAsString(true));
+        this.plugin.dump("- Face: " + face.name());
+
+        if (source.getType() != Material.LAVA) {
             return;
         }
 
-        if (!this.isCobbleGenerator(blockMaterial, generatedBlock)) {
+        if (generatedBlock.getType() != Material.AIR && generatedBlock.getType() != Material.WATER) {
+            if (generatedBlock.getType() == Material.WATER) {
+                int waterLevel = Integer.parseInt(String.valueOf(source.getBlockData().getAsString().charAt(22)));
+
+                if (waterLevel != 0) {
+                    return;
+                }
+            }
+
+            return;
+        }
+
+        if (!this.isCobbleGenerator(generatedBlock)) {
             return;
         }
 
@@ -58,15 +76,13 @@ public class BlockFromToListener implements Listener {
         generatedBlock.setType(this.selectMaterialFromGenerator(generator));
     }
 
-    private boolean isCobbleGenerator(Material firstLiquid, Block generatedBlock) {
-        Material secondLiquid = (firstLiquid == Material.WATER ? Material.LAVA : Material.WATER);
-
+    private boolean isCobbleGenerator(Block generatedBlock) {
         BlockFace[] faces = {BlockFace.SELF, BlockFace.UP, BlockFace.DOWN, BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST};
 
         // At some face of the generated block has to be water or lava (by secondLiquid)
         for (BlockFace face : faces) {
             Block blockNextToGenerated = generatedBlock.getRelative(face, 1);
-            if (blockNextToGenerated.getType() == secondLiquid) {
+            if (blockNextToGenerated.getType() == Material.WATER) {
                 return true;
             }
         }
