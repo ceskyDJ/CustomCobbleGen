@@ -24,7 +24,7 @@ Custom Cobble Gen is compatible with these plugins:
 3. Restart your server
 4. You are done! Now you can change configuration of the plugin in plugins/CustomCobbleGen directory. If there is some problem, you can insert there default configuration from this page or create an issue.
 
-If you don't want to find the JAR, here's the direct link: [CustomCobbleGen-1.0.0.jar](https://github.com/ceskyDJ/CustomCobbleGen/releases/download/v1.0.0/CustomCobbleGen-1.0.0.jar)
+If you don't want to find the JAR, here's the direct link: [CustomCobbleGen-1.0.1.jar](https://github.com/ceskyDJ/CustomCobbleGen/releases/download/v1.0.1/CustomCobbleGen-1.0.1.jar)
 
 ## Default configuration
 ```YAML
